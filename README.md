@@ -2,6 +2,9 @@
 Implemented from scratch a binary decision tree classifier (ID3) using information gain (mutual information) with entropy as splitting criterion.
 Features and labels are binary (0/1), input data is a TSV file with a header. The tree supports a max depth limit and tie-breaks equal information gain by choosing the smallest column index.
 
+Goal:
+predicting whether or not a patient has heart disease / predicting whether a customer will make a purchase on an online store and report results
+
 Features:
 - ID3 training with entropy and information gain
 - Depth constraint (max_depth)
@@ -17,7 +20,7 @@ Data format:
 
 Implementation Highlights:
 - Load data: TSV → Python 2D list of features + labels & a separate list for attribute names
-- Mutual Information: MI(X_i; Y) = H(Y) − H(Y | X_i).
-- Splitting Criterion: binary split on X_i ∈ {0,1}; stop if pure, empty, depth limit, no attributes, or non-positive information gain.
-- Tie-break: on equal gain, pick the smallest column index.
-- Prediction: Recursive traversal (DFS) to a leaf; leaf holds vote (majority label).
+- Mutual Information: MI(X_i; Y) = H(Y) − H(Y | X_i)
+- Splitting Criterion: binary split on X_i ∈ {0,1}; stop if pure, empty, depth limit, no attributes, or non-positive information gain
+- Tie-break: on equal gain, pick the smallest column index
+- Prediction: Recursive traversal (DFS) to a leaf; leaf holds vote (majority label)
